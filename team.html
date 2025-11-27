@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iON'25</title>
+    <link rel="icon" type="image/x-icon" href="asset/img/Z3NITH24WHITE.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+
+        @import url("https://use.typekit.net/gdz2chs.css");
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+        @import url("https://use.typekit.net/gdz2chs.css");
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            transition: background-color 0.3s ease-in-out;
+            background-color: #1E1E1E;
+        }
+
+        .navbar {
+            background-color: #000000d7;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            padding: 10px 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            margin: 10px 5px;
+            width: 100%;
+            height: auto;
+            max-width: 100px;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-list li a {
+            width: 165px;
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 27px;
+            padding: 10px;
+            font-family: "source-serif-pro", serif !important;
+            font-weight: 500;
+            text-align: center;
+            transition: color 0.5s ease, font-weight 0.5s ease;
+        }
+        .nav-list li a:hover{
+            color: #23a5f8;
+            font-weight: 600;
+        }
+        .cross {
+            cursor: pointer;
+            position: absolute;
+            right: 5%;
+            top: 16px;
+            display: none;
+            font-size: 3rem;
+            color: rgb(255, 255, 255);
+        }
+        .burger {
+            cursor: pointer;
+            position: absolute;
+            right: 7%;
+            top: 20px;
+            display: none;
+        }
+        .moblogo{
+            display: none;
+        }
+        .moblogo img{
+            width: 100%;
+            max-width: 62px;
+            position: absolute;
+            top: 11px;
+            left: 10px;
+        }
+        .line {
+            width: 33px;
+            background-color: black;
+            height: 4px;
+            margin: 3px 3px;
+        }
+        .hidden-content > *:not(.navbar) {
+            display: none;
+        }
+        @media only screen and (max-width: 1088px) {
+            .nav-container {
+                flex-direction: column;
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                transform: translateX(-100%);
+                opacity: 1;
+                height: 100vh;
+                transform: translateX(0);
+                background-color: #1e1e1e;
+                pointer-events: none;
+                justify-content: center;
+            }
+            .nav-container.v-class {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .nav-container:not(.v-class) {
+                pointer-events: auto;
+            }
+            .nav-list li a{
+                color: white !important;
+                font-family: "source-serif-pro", serif !important;
+                font-weight: 600;
+                font-size: 1.6rem !important;
+                opacity: .5;
+                transition: opacity 0.3s;
+            }
+            .nav-list li a:hover{
+                opacity: 1;
+            }
+            .logo {
+                margin-top: 0px;
+                margin-bottom: 50px;
+                margin-left: 0px !important;
+            }
+            .h-nav {
+                padding: 0 !important;
+                height: 70px !important;
+            }
+            .logo img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 150px !important;
+            }
+            .nav-list {
+                flex-direction: column;
+                gap: 5px;
+                color: #fff;
+                margin-right: 0px !important;
+            }
+            .navbar {
+                flex-direction: column;
+                padding: 0 0 !important;
+            }
+            .burger {
+                display: block !important;
+            }
+            .burger .line {
+                width: 25px;
+                height: 3px;
+                background-color: rgb(255, 255, 255);
+                margin: 5px;
+                transition: background-color 0.3s;
+            }
+            .burger.active{
+                display: none !important;
+            }
+            .cross {
+                display: none;
+            }
+            .cross.active {
+                display: block;
+            }
+            .h-nav {
+                padding: 0 !important;
+                height: 60px;
+            }
+            .v-class {
+                opacity: 0;
+            }
+            .moblogo{
+                display: block !important;
+            }
+            .moblogo.hidden {
+                display: none !important;
+            }
+            
+        }
+        
+        .container1, .container2, .container3{
+            position: relative;
+            max-width: 1760px;
+            margin: 30px 80px;
+            padding: 0 20px;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 150px;
+        }
+        .profile {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            border-radius: 30px;
+            border: 2px solid #b1b8cd;
+            transition: height 0.3s ease;
+            justify-content: center;
+            align-items: center;
+        }
+        #issuenigga{
+            font-size: 24px !important;
+        }
+        .profile img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 100%;
+            margin-top: 20px;
+        }
+        .profile h2,
+        .profile p {
+            text-align: center;
+        }
+        .profile h2 {
+            margin-top: 20px;
+            font-size: 28px;
+            font-family: "source-serif-pro", serif;
+            font-weight: 600;
+        }
+        .profile p {
+            margin-top: 2px;
+            font-size: 15px;
+            color: #1e1e1e;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .profile .des {
+            display: none;
+            font-family: "Roboto", sans-serif;
+            margin-top: 27px;
+            font-size: 17px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.2;
+            word-spacing: 4px;
+            text-transform: none;
+            text-align: inherit;
+            padding: 0 40px;
+        }
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #23a5f8;
+            border-radius: 30px;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        .profile:hover::before {
+            top: 60px;
+            left: 70px;
+        }
+        .profile:hover {
+            height: 600px;
+        }
+        .profile:hover .des {
+            display: block;
+        }
+        .txt{
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .txt h1{ 
+            font-size: 45px;
+            font-family: "source-serif-pro", serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+        #head{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2vw;
+            font-family: "source-serif-pro";
+            font-weight: 700;
+            margin: 100px 0px;
+            color: #ffffff;
+        }
+        .with-lines {
+            position: relative;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .with-lines::before,
+        .with-lines::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 35%;
+            height: 2px;
+            background-color: #686868;
+        }
+        .with-lines::before {
+            left: 0;
+        }
+        .with-lines::after {
+            right: 0;
+        }
+        @media only screen and (max-width: 1600px){
+            .profile {
+                width: 350px;
+                height: 350px;
+            }
+            .profile img{
+                height: 130px;
+                width: 130px;
+            }
+            .profile h2{
+                font-size: 26px;
+            }
+            .profile .des{
+                font-size: 16px;
+                padding: 0 60px;
+            }
+            .profile p{
+                font-size: 14px;
+            }
+            .profile:hover{
+                height: 480px;
+            }
+        }
+        @media only screen and (max-width: 1450px){
+            .profile {
+                width: 300px;
+                height: 300px;
+            }
+            .profile img{
+                height: 110px;
+                width: 110px;
+            }
+            .profile h2{
+                font-size: 23px;
+            }
+            .profile .des{
+                font-size: 15px;
+                padding: 0 40px;
+            }
+            .profile p{
+                font-size: 13px;
+            }
+            .profile:hover{
+                height: 450px;
+            }
+        }
+        @media only screen and (max-width: 1370px){
+            .profile {
+                width: 260px;
+                height: 260px;
+            }
+            .profile img{
+                height: 110px;
+                width: 110px;
+            }
+            .profile h2{
+                font-size: 21px;
+            }
+            .profile .des{
+                font-size: 15px;
+                padding: 0 30px;
+            }
+            .profile p{
+                font-size: 12px;
+            }
+            .profile:hover{
+                height: 400px;
+            }
+        }
+        @media only screen and (max-width: 1270px){
+            .profile {
+                width: 250px;
+                height: 250px;
+            }
+            .profile img{
+                height: 100px;
+                width: 100px;
+            }
+            .profile h2{
+                font-size: 21px;
+            }
+            .profile .des{
+                font-size: 14px;
+                padding: 0 20px;
+            }
+            .profile p{
+                font-size: 12px;
+            }
+            .profile:hover{
+                height: 410px;
+            }
+        }
+        @media only screen and (max-width: 1125px){
+            .profile {
+                width: 225px;
+                height: 225px;
+            }
+            .profile img{
+                height: 83px;
+                width: 83px;
+            }
+            .profile h2{
+                font-size: 20px;
+            }
+            .profile .des{
+                font-size: 13px;
+            }
+            .profile p{
+                font-size: 11px;
+            }
+            .profile:hover{
+                height: 390px;
+            }
+        }
+        @media only screen and (max-width: 1045px) {
+            .profile {
+                width: 300px;
+                height: 300px;
+            }
+            .profile img{
+                height: 110px;
+                width: 110px;
+            }
+            .profile h2{
+                font-size: 27px;
+            }
+            .profile .des{
+                font-size: 17px;
+            }
+            .profile p{
+                font-size: 15px;
+            }
+            .profile:hover{
+                height: 450px;
+            }
+            #head{
+                font-size: 5.5vw !important;
+            }
+            .with-lines::before, .with-lines::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                width: 12% !important;
+                height: 2px;
+                background-color: #666666;
+            }
+        }
+        @media only screen and (max-width: 880px) {
+            .txt{
+                display: flex;
+            }
+            .container1, .container2, .container3{
+                margin-top: 100px !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .container:hover{
+                margin-right: 20px !important;
+                margin: 0;
+            }
+        }
+        @media only screen and (max-width: 475px) {
+            .profile{
+                width: 300px;
+                height: 300px;
+            }
+            .container1, .container2, .container3{
+                margin: 30px 0px;
+            }
+            .profile:hover{
+                height: 500px;
+            }
+        }
+        @media only screen and (max-width: 450px) {
+            .profile{
+                height: 250px;
+                width: 250px;
+            }
+            .profile h2{
+                font-size: 23px;
+            }
+            .profile p{
+                font-size: 14px;
+            }
+            .profile .des{
+                font-size: 12px;
+            }
+        }
+        @media only screen and (max-width: 400px) {
+            .profile img{
+                height: 80px;
+                width: 80px;
+            }
+            .profile{
+                height: 200px;
+                width: 200px;
+            }
+            .profile h2{
+                font-size: 20px;
+            }
+            .profile p{
+                font-size: 13px;
+            }
+            .profile .des{
+                font-size: 12px;
+            }
+            .profile:hover{
+                height: 400px
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar h-nav" style="position: fixed; z-index: 999;">
+        <div class="nav-container v-class">
+            <div class="logo" style="margin-left: 68px;">
+                <a href="index.html">
+                    <img src="asset/img/Z3NITH24BLACK.png" alt="logo">
+                </a>
+            </div>
+            <ul class="nav-list v-class" style="margin-right: 67px;">
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="https://bit.ly/z3nith2k24results" target="_blank">Results</a></li> -->
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="video.html">Videos</a></li>
+            </ul>
+        </div>
+        <div class="burger" style="overflow: hidden;">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="cross">
+            <i class='bx bx-x'></i>
+        </div>
+        <div class="moblogo">
+            <a href="index.html"><img src="asset/img/Z3NITH24WHITE.png" alt=""></a>
+        </div>
+    </nav>
+    <div class="txt" style="margin-top: 180px;"><h1>Our Team</h1></div>
+    <div class="container1" style="margin-top: 200px;">
+        <div class="row">
+            <div class="profile">
+                <h2>Ms. Ritu Nagpal</h2>
+                <p>Teacher</p>
+                <p class="des"></p> 
+            </div>
+            <div class="profile">
+                <h2>Ms. Guneet Kaur</h2>
+                <p>Event Coordinator</p>
+                <p class="des"></p> 
+            </div>
+            <div class="profile">
+                <h2>Ms. Jasmine Kaur</h2>
+                <p>Teacher</p>
+                <p class="des"></p>
+            </div>
+            <div class="profile">
+
+            </div>
+            <div class="profile">
+                <h2>Ms. Hashmita Sachdeva</h2>
+                <p>Teacher</p>
+                <p class="des"></p>
+            </div>
+            <div class="profile">
+
+            </div>
+        </div>
+    </div>
+    <h1 id="head" class="with-lines">Team Tech Mobius</h1>
+    <div class="container2">
+        <div class="row">
+            <div class="profile">
+                <img src="asset/img/skullvansh.png" alt="Profile 1">
+                <h2>Aviral Arora</h2>
+                <p>Digital Society Head</p>
+                <p class="des">The jack-of-all-trades who builds robots, snaps perfect shots, and edits videos like a pro in robotics, photography, and video editing.
+                </p> 
+            </div>
+            <div class="profile">
+                <img src="asset/img/droy.png" alt="Profile 1">
+                <h2>Mohak Nigam</h2>
+                <p>Digital Society Head</p>
+                <p class="des">A video editing virtuoso who can transform any raw footage into pure magic.
+                </p> 
+            </div>
+            <div class="profile">
+                <img src="asset/img/shivya.png" alt="Profile 1">
+                <h2>Ayushmaan Gera</h2>
+                <p></p>
+                <p class="des">Master of capturing moments with a camera and turning them into cinematic gold in photography and video making.
+                </p> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="profile">
+                <img src="asset/img/tm.png" alt="Profile 1">
+                <h2>Aryan Sharma</h2>
+                <p></p>
+                <p class="des">A maestro in video editing and videography, making every frame a masterpiece.
+                </p> 
+            </div>
+            <div class="profile">
+                <img src="asset/img/raghav.png" alt="">
+                <h2>Rushil Vijh</h2>
+                <p></p>
+                <p class="des">The ideathon pitching wizard, always ready with the next big idea to win it all.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- <hr style="width: 100%;border: 1px solid #1e1e1e;margin-bottom: 50px;"> -->
+    <div class="container3">
+        <div class="row">
+            <div class="profile">
+                <img src="asset/img/tm.png" alt="Profile 1">
+                <h2>Himani Rawat</h2>
+                <p></p>
+                <p class="des">A multi-talented creative force, juggling photography, video editing, graphic designing, and cinematography like a true artist.
+                </p> 
+            </div>
+            <div class="profile">
+                <img src="asset/img/tm.png" alt="Profile 1">
+                <h2>Sanat Lamba</h2>
+                <p></p>
+                <p class="des">The quiz master with a sharp mind for crypto, always ready to answer the toughest questions.
+                </p> 
+            </div>
+            <div class="profile">
+                <img src="asset/img/tm.png" alt="Profile 1">
+                <h2>Aaditi</h2>
+                <p></p>
+                <p class="des">A creative genius in video editing, photo editing, and designing, turning ideas into visual art.
+                </p> 
+            </div>
+        </div>
+            <div class="row">
+                <div class="profile">
+                    <img src="asset/img/tm.png" alt="Profile 1">
+                    <h2>Kaavyansh</h2>
+                    <p></p>
+                    <p class="des">A photography and video editing enthusiast, capturing moments and editing them to perfection.</p>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <script>
+        const burger = document.querySelector('.burger');
+        const cross = document.querySelector('.cross');
+        const navContainer = document.querySelector('.nav-container');
+        const navbar = document.querySelector('.navbar');
+        const logoImg = document.querySelector('.logo img');
+        const navlist = document.querySelector('.nav-list');
+        const moblogo = document.querySelector('.moblogo');
+        const body = document.querySelector('body');
+        const newLogoSrc = 'asset/img/Z3NITH24WHITE.png';
+        const originalLogoSrc = 'asset/img/Z3NITH24BLACK.png';
+
+        burger.addEventListener('click', () => {
+            navContainer.classList.toggle('v-class');
+            navbar.classList.toggle('h-nav');
+            navlist.classList.toggle('v-class');
+            burger.classList.toggle('active');
+            cross.classList.toggle('active');
+            moblogo.classList.toggle('hidden');
+            if (navContainer.classList.contains('v-class')) {
+                logoImg.src = originalLogoSrc;
+                body.style.backgroundColor = '#ffffff';
+                navContainer.style.pointerEvents = 'none';
+                body.style.overflowY = 'auto';
+                body.classList.remove('hidden-content'); 
+            } else {
+                logoImg.src = newLogoSrc;
+                body.style.backgroundColor = '#1e1e1e';
+                navContainer.style.pointerEvents = 'auto';
+                body.style.overflowY = 'hidden';
+                body.classList.add('hidden-content');
+            }
+        });
+
+        cross.addEventListener('click', () => {
+            navContainer.classList.toggle('v-class');
+            navbar.classList.toggle('h-nav');
+            navlist.classList.toggle('v-class');
+            burger.classList.toggle('active');
+            cross.classList.toggle('active');
+            moblogo.classList.toggle('hidden');
+
+            if (navContainer.classList.contains('v-class')) {
+                logoImg.src = originalLogoSrc;
+                body.style.backgroundColor = '#ffffff';
+                navContainer.style.pointerEvents = 'none';
+                body.style.overflowY = 'auto';
+                body.classList.remove('hidden-content'); 
+            } else {
+                logoImg.src = newLogoSrc;
+                body.style.backgroundColor = '#1e1e1e';
+                navContainer.style.pointerEvents = 'auto';
+                body.style.overflowY = 'hidden';
+                body.classList.add('hidden-content');
+            }
+        });
+        function rearrangeProfiles(containerSelector) {
+            const container = document.querySelector(containerSelector);
+            const profiles = Array.from(container.querySelectorAll('.profile'));
+            container.innerHTML = '';
+            if (window.matchMedia('(max-width: 880px)').matches) {
+                profiles.forEach(profile => {
+                    const newRow = document.createElement('div');
+                    newRow.classList.add('row');
+                    newRow.appendChild(profile);
+                    container.appendChild(newRow);
+                });
+            } else if (window.matchMedia('(max-width: 1045px)').matches) {
+                let newRow;
+                profiles.forEach((profile, index) => {
+                    if (index % 2 === 0) {
+                        newRow = document.createElement('div');
+                        newRow.classList.add('row');
+                        container.appendChild(newRow);
+                    }
+                    newRow.appendChild(profile);
+                });
+            } else {
+                let newRow;
+                profiles.forEach((profile, index) => {
+                    if (index % 3 === 0) {
+                        newRow = document.createElement('div');
+                        newRow.classList.add('row');
+                        container.appendChild(newRow);
+                    }
+                    newRow.appendChild(profile);
+                });
+            }
+        }
+
+        const mediaQuery880 = window.matchMedia('(max-width: 880px)');
+        const mediaQuery1045 = window.matchMedia('(max-width: 1045px)');
+
+        mediaQuery880.addListener(() => rearrangeProfiles('.container1'));
+        mediaQuery1045.addListener(() => rearrangeProfiles('.container1'));
+
+        mediaQuery880.addListener(() => rearrangeProfiles('.container2'));
+        mediaQuery1045.addListener(() => rearrangeProfiles('.container2'));
+
+        mediaQuery880.addListener(() => rearrangeProfiles('.container3'));
+        mediaQuery1045.addListener(() => rearrangeProfiles('.container3'));
+
+        rearrangeProfiles('.container1');
+        rearrangeProfiles('.container2');
+        rearrangeProfiles('.container3');
+    </script>
+
+
+
+
+</body>
+</html>

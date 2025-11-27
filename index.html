@@ -1,0 +1,1328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iON'25</title>
+    <link rel="icon" type="image/x-icon" href="asset/img/Z3NITH24WHITE.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        @import url("https://use.typekit.net/gdz2chs.css");
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+        @import url('https://use.typekit.net/gdz2chs.css');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        *{
+            overflow-x: clip;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            transition: background-color 0.3s ease-in-out;
+            background-color: #1e1e1e;
+        }
+        .navbar {
+            background-color: #000000d7;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            padding: 10px 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            margin: 10px 5px;
+            width: 100%;
+            height: auto;
+            max-width: 100px;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-list li a {
+            width: 165px;
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 27px;
+            padding: 10px;
+            font-family: "source-serif-pro", serif !important;
+            font-weight: 500;
+            text-align: center;
+            transition: color 0.5s ease, font-weight 0.5s ease;
+        }
+        .nav-list li a:hover{
+            color: #23a5f8;
+            font-weight: 600;
+        }
+        .cross {
+            cursor: pointer;
+            position: absolute;
+            right: 5%;
+            top: 16px;
+            display: none;
+            font-size: 3rem;
+            color: rgb(255, 255, 255);
+        }
+        .burger {
+            cursor: pointer;
+            position: absolute;
+            right: 7%;
+            top: 20px;
+            display: none;
+        }
+        .moblogo{
+            display: none;
+        }
+        .moblogo img{
+            width: 100%;
+            max-width: 62px;
+            position: absolute;
+            top: 11px;
+            left: 10px;
+        }
+        .line {
+            width: 33px;
+            background-color: rgb(255, 255, 255);
+            height: 4px;
+            margin: 3px 3px;
+        }
+        .hidden-content > *:not(.navbar) {
+            display: none;
+        }
+        @media only screen and (max-width: 1088px) {
+            .nav-container {
+                flex-direction: column;
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                transform: translateX(-100%);
+                opacity: 1;
+                height: 100vh;
+                transform: translateX(0);
+                background-color: #000000d7;
+                pointer-events: none;
+                justify-content: center;
+            }
+            .nav-container.v-class {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .nav-container:not(.v-class) {
+                pointer-events: auto;
+            }
+            .nav-list li a{
+                color: white !important;
+                font-family: "source-serif-pro", serif !important;
+                font-weight: 600;
+                font-size: 1.6rem !important;
+                opacity: .5;
+                transition: opacity 0.3s;
+            }
+            .nav-list li a:hover{
+                opacity: 1;
+            }
+            .logo {
+                margin-top: 0px;
+                margin-bottom: 50px;
+                margin-left: 0px !important;
+            }
+            .h-nav {
+                padding: 0 !important;
+                height: 70px !important;
+            }
+            .logo img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 150px !important;
+            }
+            .nav-list {
+                flex-direction: column;
+                gap: 5px;
+                color: #fff;
+                margin-right: 0px !important;
+            }
+            .navbar {
+                flex-direction: column;
+                padding: 0 0 !important;
+            }
+            .burger {
+                display: block !important;
+            }
+            .burger .line {
+                width: 25px;
+                height: 3px;
+                background-color: black;
+                margin: 5px;
+                transition: background-color 0.3s;
+            }
+            .burger.active{
+                display: none !important;
+            }
+            .cross {
+                display: none;
+            }
+            .cross.active {
+                display: block;
+            }
+            .h-nav {
+                padding: 0 !important;
+                height: 60px;
+            }
+            .v-class {
+                opacity: 0;
+            }
+            .moblogo{
+                display: block !important;
+            }
+            .moblogo.hidden {
+                display: none !important;
+            }
+            
+        }
+        #issuenigga{
+            font-size: 24px !important;
+        }
+        .empty{
+            height: 22vh;
+        }
+        .update {
+            margin-top: 124.078px;
+            height: 5.5vh;
+            background-color: #333333;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }   
+        .update p{ 
+            font-family: "Lato";
+            font-weight: 300;
+            font-style: normal;
+            color: white;
+            font-size: 0.9vw;
+        }
+        .update a{
+            font-family: "Lato", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            text-decoration: underline;
+            color: #48D597;
+            text-underline-offset: 5px;
+        }
+        #upbutton{
+            color: #48D597;
+            font-size: 0.9vw;
+        }
+        .showcase{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 82vh;
+            flex-direction: column;
+        }
+        .showcase .con img{
+            width: 13.3vw;
+            height: 22.8vh;
+        }
+        .showcase .con .date{
+            padding-top: 15px;
+            text-transform: uppercase;
+            font-family: "Roboto Condensed";
+            font-size: 1.2vw;
+            padding-bottom: 50px;
+            color: white;
+        }
+        .vlo {
+            border-left: 2px solid white;
+            height: 22vh;
+            margin-bottom: 32px;
+            margin-right: 130px;
+            color: white;
+        }
+        .vlt{
+            border-left: 2px solid white;
+            height: 22vh;
+            margin-left: 40px;
+            color: white;
+        }
+        .con{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .ani {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+        .ani .emoji {
+            position: absolute;
+            font-size: 12vw;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 2s;
+        }
+        .emoji.visible {
+            opacity: 1;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Lato";
+            font-weight: 700;
+            padding: 120px 60px; 
+            position: relative; 
+            font-size: 2.5vw;
+            z-index: 2; 
+            height: 150vh;
+            background-color: #1a457e;
+            color: white;
+        }
+        .bgtxt{
+            text-transform: uppercase;
+            color: white;
+            font-size: 50px;
+            font-family: "Lato";
+            font-weight: 700;
+            z-index: 0;
+            position: absolute;
+            left: 150px;
+        }
+        .eve{
+            background-color: #1e1e1e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .events{
+            height: 150vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .scrollable-content {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            width: 100%;
+            padding-left: 500px;
+            overflow-y: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: gray #1e1e1e; 
+        }
+        .event{
+            height: 65vh;
+            width: 25vw;
+            margin-right: 150px;
+            flex: none;
+            z-index: 1;
+            position: relative;
+            transition: height 0.3s;
+        }
+        .event h1{
+            color: white;
+            z-index: 0;
+        }
+        .event img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14%;
+        }
+        .event .text-overlay {
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white; 
+            font-size: 6.5vw; 
+            font-family: "source-serif-pro"; 
+            font-weight: 700; 
+            text-align: center; 
+            opacity: 1;
+            transition: opacity 0.8s;
+        }
+        .event:hover{
+            height: 70vh;
+        }
+        .event .hover-content {
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            text-align: center; 
+            color: white; 
+            width: 360px;
+            opacity: 0;
+            transition: opacity 0.8s;
+        }
+        .event .hover-content h2{
+            font-size: 2.5vw;
+            font-family: "Lato"; 
+            font-weight: 700;
+            padding-bottom: 22px;
+        }
+        .event .hover-content .tag{
+            font-family: "Roboto";
+            padding-bottom: 30px;
+            font-style: italic;
+            font-weight: 300; 
+            font-size: 1.2vw;
+        }
+        .event .hover-content .ven{
+            font-family: "Lato";
+            font-size: 1.2vw;
+            font-weight: 400; 
+        }
+        .event:hover .text-overlay{
+            opacity: 0;
+        }
+        .event:hover .hover-content {
+            opacity: 1;
+        }
+        .showcase button{
+            font-family: "Lato";
+            font-weight: 600;
+            font-size: 0.72vw;
+            border: none;
+            border-radius: 100px;
+            width: 8.3vw;
+            height: 4.9vh;
+            margin-bottom: 30px;
+            background-color: #ffff;
+            color: #23a5f8;
+            transition: all 0.3s;
+        }
+        .showcase button:hover{
+            background-color: #404964;
+            color: #ffff;
+        }
+        .treasury{
+            height: 86vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffff;
+            position: relative;
+        }
+        .slider {
+            position: relative;
+            width: 80%;
+            height: 60vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 60vw;
+            height: 60vh;
+            object-fit: cover;
+            display: none;
+        }
+        .dots {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #ffff;
+            border-radius: 50%;
+            border: 1px solid black;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+        .dot:hover{
+            background-color: #d7dff5;
+        }
+        .dot.active {
+            background-color: #23a5f8;
+            border: 0;
+        }
+
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+        .footer{
+            overflow: hidden;
+            border-top: 1px solid black;
+            display: flex;
+            height: 40vh;
+            width: 100vw;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1e1e1e;
+        }
+        .footer .location{
+            display: flex;
+            flex-direction: column;
+            text-align: left;  
+            font-family: "Roboto";
+            font-weight: 400;
+            align-items: flex-start;
+            color: white;
+            padding-right: 100px;
+        }
+        .footer .location .cr{
+            font-weight: 300 !important;
+            text-align: left;
+            font-size: 0.8vw;
+        }
+        .footer .social{
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            font-size: 1.2vw; 
+        }
+        .footer .sepration{
+            display: flex;
+        }
+        .footer .sdot {
+            margin: 10px;
+            height: 2.5vw;
+            width: 2.5vw;
+            background-color: #ffff;
+            border-radius: 50%;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+
+        .footer .sdot i {
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            color: black;
+            font-size: 1.1vw;
+            width: 100%;
+            height: 100%;
+        }
+        .footer .sepration .sdot a{
+            text-decoration: none;
+        }
+        .footer #zen{
+            font-family: "Lato";
+            font-weight: 300;
+            color: #23a5f8;
+            font-size: 2.3vw;
+            padding-left: 100px;
+        }
+        .footer .location .adw{
+            font-size: 1.1vw;
+            margin-bottom: 10px;
+        }
+        #bgVideo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .content, .events, .treasury, .footer, .update {
+            position: relative;
+            z-index: 1;
+        }
+        .footer .sdot i:hover{
+            color: #23a5f8;
+            transition: color 0.3s;
+        }
+        #sb{
+            font-family: "Lato";
+            font-weight: 1000;
+            text-align: left;
+            border-radius: 100px;
+            border: none;
+            width: 14.5vw;
+            height: 3.5vw;
+            padding: 0px 35px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .7vw;
+            cursor: pointer;
+        }
+        .sponsors{
+            height: 150vh;
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 15vh;
+        }
+        .spon{
+            display: flex;
+            flex-direction: column;
+            gap: 13vh;
+        }
+        .sponsors h1{
+            font-family: "source-serif-pro";
+            font-weight: 700;
+            font-size: 3.5vw;
+            color: #AABAE9;
+        }
+        .spon .cake{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .spon .xyz{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sponsors .spon .xyz img{
+            width: 75%;
+
+        }
+        @media (max-width: 1500px) {
+            #sb{
+                padding: 0px 25px;
+            }
+        }
+        @media (max-width: 1366px) {
+            .event{
+                width: 22vw;
+            }
+        }
+        @media (max-width: 1250px) {
+            #bgVideo{
+                display: none; 
+            }
+            .showcase {
+                background-image: url('asset/img/bgm.png');
+                background-size: cover;
+                background-position: center;
+            }
+            .gloc{
+                width: 400px;
+            }
+            .scrollable-content{
+                scrollbar-width: none !important;
+            }
+        }
+
+        @media (max-width: 1090px) {
+            .update{
+                margin-top: 70px !important;
+            }
+        }
+        @media (max-width: 1448px) and (max-height: 980px){
+            .showcase button{
+                font-size: 0.8vw;
+                width: 11vw;
+                height: 5vh;
+            }
+            .event{
+                height: 60vh;
+            }
+            .location{
+                padding-right: 50px !important;
+            }
+            .sdot{
+                height: 40px !important;
+                width: 40px !important;
+            }
+            .footer .sdot i{
+                font-size: 1.6vw;
+            }
+            .footer #zen{
+                font-size: 2.5vw;
+            }
+        }
+        @media (max-height: 700px){
+            .footer iframe{
+                height: 135px;
+                width: 300px;
+            }
+        }
+        @media (max-width: 1024px) and (max-height: 1368px){
+            .update{
+                margin-top: 70px !important;
+            }
+            .update p{
+                font-size: 2.5vw;
+            }
+            #upbutton{
+                font-size: 2.5vw;
+            }
+            .slider{
+                width: 100%;
+            }
+            .slides img{
+                width: 100vw;
+                height: 37vh;
+            }
+            .prev, .next{
+                color: #f5f5f5;
+                font-size: 80px;
+            }
+            .next{
+                margin-right: 45px;
+            }
+            .prev{
+                margin-left: 45px;
+            }
+            .footer{
+                height: 15vh;
+            }
+            .footer iframe{
+                height: 125px;
+                width: 260px;
+            }
+            .footer .location .cr{
+                font-size: 1.2vw;
+            }
+            .footer .location .adw{
+                font-size: 1.3vw;
+            }
+            .footer .sepration .sdot i{
+                font-size: 1.8vw;
+            }
+            .footer #zen{
+                font-size: 2.8vw;
+            }
+            .treasury{
+                height: 60vh;
+            }
+            .dots{
+                padding-bottom: 90px;
+            }
+            .events{
+                height: 113vh;
+            }
+            .bgtxt{ 
+                left: inherit;
+                text-align: center;
+            }
+            .scrollable-content{
+                padding-left: 930px;
+            }
+            .event {
+                height: 45vh;
+                width: 45vw;
+            }
+            .event:hover{
+                height: 50vh;
+            }
+            .event .hover-content h2 {
+                font-size: 5.3vw;
+            }
+            .event .hover-content .tag{
+                font-size: 2.2vw;
+            }
+            .event .hover-content .ven{
+                font-size: 2.2vw;
+            }
+            .content{
+                font-size: 3.5vw;
+            }
+            .ani .emoji{
+                font-size: 25vw;
+            }
+            .showcase{
+                height: 90vh;
+                justify-content: space-between;
+            }
+            .showcase button{
+                font-size: 0.83vw;
+                width: 9.3vw;
+                height: 2.5vh;
+            }
+            .showcase .con img{
+                width: 33vw;
+            }
+            .showcase .con .date{
+                font-size: 3.2vw;
+            }
+            .showcase button {
+                font-size: 2.2vw;
+                width: 25.3vw;
+                height: 4.5vh;
+            }
+            .eve{
+                padding-top: 300px;
+                padding-bottom: 300px;
+            }
+        }
+        @media (max-width: 450px) and (max-height: 950px) {
+            .footer .social a{
+                text-decoration: none !important;
+            }
+            .footer .social{
+                padding-bottom: 10px;
+            }
+            .slides img{
+                object-fit: cover;
+            }
+            .prev, .next{
+                font-size: 45px;    
+            }
+            .prev{
+                margin-left: 5px;
+            }
+            .next{
+                margin-right: 5px;
+            }
+            .footer{
+                height: 80vh;
+                width: 100vw;
+                flex-direction: column;
+            }
+            .footer #zen{
+                padding: 0;
+                padding-top: 40px;
+                font-size: 8vw;
+                text-align: center;
+            }
+            .footer .social .sdot i{
+                padding-top: 8px;
+                font-size: 5.5vw;
+            }
+            .footer .location{
+                padding: 0 !important;
+                padding-bottom: 20px !important;
+                align-items: center;
+                justify-content: center;
+            }
+            .footer .location .adw{
+                font-size: 3.5vw;
+                text-align: center;
+                align-items: center;
+                padding: 0; 
+            }
+            .footer .sdot{
+                flex-direction: column;
+            }
+            .footer .location .cr{
+                font-size: 2.9vw;
+            }
+            .emp{
+                height: 50px !important;
+            }
+            .dots{
+                padding-bottom: 7vh;
+            }
+            .gloc{
+                order: 0;
+            }
+            .event {
+                height: 50vh;
+                width: 70vw;
+            }
+            .event:hover{
+                height: 55vh;
+            }
+            .scrollable-content {
+                padding-left: 630px;
+            }
+            .footer iframe {
+                height: 199px;
+                width: 325px;
+            }
+            .contentcontent{
+                width: 88%;
+            }
+            .content{
+                padding: 30px 20px;
+                font-size: 3.5vw;
+            }
+            .ani .emoji{
+                font-size: 40vw;
+            }
+            .update{ 
+                margin-top: 70px;
+                height: 7.5vh;
+            }
+            .update p{
+                font-size: 3.3vw;
+                display: flex;
+                flex-direction: column;
+                font-weight: 700;
+            }
+            #upbutton{
+                font-size: 3.3vw;
+            }
+            .showcase{
+                height: 85vh;
+            }
+            .showcase .con img{
+                height: 18vh;
+                width: 45.5vw;
+            }
+            .showcase .date{
+                font-size: 3.6vw;
+            }
+            .showcase button {
+                font-size: 3.5vw;
+                width: 40vw;
+                height: 5vh;
+                font-weight: 600;
+            }
+            .event .hover-content h2 {
+                font-size: 8.3vw;
+            }
+            .event .hover-content .tag{
+                font-size: 3.2vw;
+            }
+            .event .hover-content .ven{
+                font-size: 3.2vw;
+            }
+            .event .text-overlay {
+                font-size: 20vw;
+            }
+            .footer .social a {
+                margin-bottom: 8px;
+            }
+            .arrow{
+                font-size: 19vw;
+            }
+            .showcase{
+                justify-content: space-between;
+            }
+            .vlo{
+                height: 10vh;
+            }
+            .vlt{
+                height: 10vh;
+            }
+            .showcase .con .date{
+                font-size: 6.6vw;
+            }
+            .eve{
+                padding-top: 300px;
+                padding-bottom: 300px;
+            }
+            #sb{
+                width: 37vw;
+                height: 4.5vh;
+                font-size: 1.7vw;
+                padding: 0px 20px;
+            }
+            #evebl{
+                width: 15vw !important;
+            }
+            .sponsors h1{
+                font-size: 10vw;
+            }
+            .sponsors .spon .cake img{
+                width: 75%;
+            }
+            .sponsors .spon .xyz img{
+                width: 25%;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            #evebl{
+                width: 75vw !important;
+            }
+        }
+        @media (max-width: 380px) {
+            #evebl{
+                width: 75vw !important;
+            }
+        }
+        @media (max-width: 325px) {
+            #evebl{
+                width: 70vw !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar h-nav" style="position: fixed; z-index: 999;">
+        <div class="nav-container v-class">
+            <div class="logo" style="margin-left: 68px;">
+                <a href="index.html">
+                    <img src="asset/img/Z3NITH24WHITE.png" alt="logo">
+                </a>
+            </div>
+            <ul class="nav-list v-class" style="margin-right: 67px;">
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="" target="_blank">Results</a></li> -->
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="video.html">Videos</a></li>
+                        </ul>
+        </div>
+        <div class="burger" style="overflow: hidden;">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <div class="cross">
+            <i class='bx bx-x'></i>
+        </div>
+        <div class="moblogo">
+            <a href="index.html"><img src="asset/img/Z3NITH24WHITE.png" alt=""></a>
+        </div>
+    </nav>
+    <div class="update">
+        <!-- <p><span>iON'25 has concluded. We thank everyone for their support.&nbsp; &nbsp;</span><span id="upbutton"><a href="https://youtu.be/Iw6P8UyCIEI" target="_blank">Finale Video</a><span> &nbsp;&nbsp;&#10095;</span></span></p> -->
+    </div>
+    <div class="showcase">
+        <video autoplay loop muted playsinline poster="asset/img/bg.png" id="bgVideo">
+            <source src="asset/img/bg.mp4" type="video/mp4">
+        </video>    
+        <div class="vlo"></div>
+        <div class="con">
+            <img src="asset/img/Z3NITH24WHITE.png" alt="iON'25 logo">
+            <p class="date">
+                MAY 9 2025
+            </p>
+            <button onclick=dothis()>VIEW TRAILER</button>
+            <button onclick=dothat()>BROCHURE</button>
+        </div>
+        <div class="vlt"></div>
+    </div>
+    <div class="empty"></div>
+    <div class="ani" id="ani">
+        <div class="emoji" id="emoji-1">🌎</div>
+        <div class="emoji" id="emoji-2">🌍</div>
+        <div class="emoji" id="emoji-3">🌏</div>
+        <div class="emoji" id="emoji-4">🌐</div>
+    </div>
+    <div class="content">
+        <div class="contentcontent"> Step into a realm where technology ignites change and ideas spark tomorrow’s solutions. iON 2025—the 18ᵗʰ annual inter-school tech-fest hosted by International School, Dwarka, and executed with precision by Techmobius—returns on Friday, May 9, 2025, under the theme “Synaptica: Innovation for a Better Tomorrow.” <br>From adrenaline-pumping Robotics Wars and creative Video Editing challenges to high-stakes Idea Pitching and dynamic Artistry events, over 1,000 young innovators from more than 60 schools across India will converge to showcase groundbreaking projects and compete for top honors . <br> Don’t miss your chance to collaborate with fellow technologists, embrace cutting-edge tools, and fuel your competitive spirit—register by April 25 to join this electrifying journey into the future of innovation!</div>
+    </div>
+    <div class="eve">
+        <div class="bgtxt">
+                Events <br> this <br> year <br><span class="arrow">&#10230;</span>
+        </div>
+        <div class="events">
+            <div class="scrollable-content">
+                <div class="event" id="eve1">
+                    <img src="asset/img/img1.png">
+                    <div class="text-overlay">1</div>
+                    <div class="hover-content">
+                        <h2 style="color: #7D918A;">ArtiON</h2>
+                        <p class="tag">Life Beyond Earth</p>
+                        <p class="ven">Online + Offline - Team of 2</p>
+                    </div>
+                </div>
+                <div class="event">
+                    <img src="asset/img/2.png" alt="">
+                    <div class="text-overlay">2</div>
+                    <div class="hover-content">
+                        <h2 style="color: #917D7D;">PresentiON</h2>
+                        <p class="tag">Impact of Social Media on Human Connection</p>
+                        <p class="ven">Online + Offline - Team of 2</p>
+                    </div>
+                </div>
+                <div class="event">
+                    <img src="asset/img/img1.png" alt="">
+                    <div class="text-overlay">3</div>
+                    <div class="hover-content">
+                        <h2 style="color: #867D91;">ScratchiON</h2>
+                        <p class="tag">Mission Earth: Saving the Plane</p>
+                        <p class="ven">Online + Offline - Team of 2</p>
+                    </div>
+                </div>
+                                <div class="event">
+                    <img src="asset/img/2.png" alt="">
+                    <div class="text-overlay">4</div>
+                    <div class="hover-content">
+                        <h2 style="color: #867D91;">CanviON</h2>
+                        <p class="tag">Designing a Sustainable
+                            Future Pixel-by-Pixel - Connectify</p>
+                        <p class="ven">Online + Offline - Team of 1</p>
+                    </div>
+                </div>
+                                <div class="event">
+                    <img src="asset/img/img1.png" alt="">
+                    <div class="text-overlay">5</div>
+                    <div class="hover-content">
+                        <h2 style="color: #867D91;">RobotriON</h2>
+                        <p class="tag">You are up for a Tenz-tational showdown</p>
+                        <p class="ven">Offline - Team of 2</p>
+                    </div>
+                </div>
+                                                <div class="event">
+                    <img src="asset/img/2.png" alt="">
+                    <div class="text-overlay">6</div>
+                    <div class="hover-content">
+                        <h2 style="color: #867D91;">CinemiON</h2>
+                        <p class="tag">Inventing Hope</p>
+                        <p class="ven">Online + Offline - Team of 4</p>
+                    </div>
+                </div>
+                                                <div class="event">
+                    <img src="asset/img/img1.png" alt="">
+                    <div class="text-overlay">7</div>
+                    <div class="hover-content">
+                        <h2 style="color: #867D91;">CreatiON</h2>
+                        <p class="tag">Innovation for a Better Tomorrow</p>
+                        <p class="ven">Online - Team of 1</p>
+                    </div>
+                </div>
+                                                <div class="event">
+                    <img src="asset/img/2.png" alt="">
+                    <div class="text-overlay">8</div>
+                    <div class="hover-content">
+                        <h2 style="color: #867D91;">InnovatiON</h2>
+                        <p class="tag">Modelling the Future</p>
+                        <p class="ven">Online - Team of 1</p>
+                    </div>
+                </div>
+                                                <div class="event">
+                    <img src="asset/img/img1.png" alt="">
+                    <div class="text-overlay">9</div>
+                    <div class="hover-content">
+                        <h2 style="color: #867D91;">CodtriON</h2>
+                        <p class="tag">Python - Hackerrank
+                        </p>
+                        <p class="ven">Online + Offline - Team of 2</p>
+                    </div>
+                    </div>
+
+                    <div class="event">
+                        <img src="asset/img/2.png" alt="">
+                        <div class="text-overlay">10</div>
+                        <div class="hover-content">
+                            <h2 style="color: #867D91;">IdeiON</h2>
+                            <p class="tag">Creating a better tomorrown</p>
+                            <p class="ven">Online + Offline - Team of 3</p>
+                        </div>
+                        </div>
+                        <div class="event">
+                            <img src="asset/img/img1.png" alt="">
+                            <div class="text-overlay">11</div>
+                            <div class="hover-content">
+                                <h2 style="color: #867D91;">AdiON</h2>
+                                <p class="tag">Let's make
+                                    the world laugh with your gadget!</p>
+                                <p class="ven">Online - Team of 2</p>
+                            </div>
+                            </div>
+                            <div class="event">
+                                <img src="asset/img/.png" alt="">
+                                <div class="text-overlay">12</div>
+                                <div class="hover-content">
+                                    <h2 style="color: #867D91;">WariON</h2>
+                                    <p class="tag">You are up for a Tenz-tational showdown</p>
+                                    <p class="ven">Online - Team of 6+1</p>
+                                </div>
+                                </div>
+                                </div>
+                </div>
+                </div>
+                </div>
+                <div class="event" id="evebl" style="width: 0.001vw;"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sponsors">
+        <h1>Our Sponsors</h1>
+        <div class="spon">
+            <!-- <div class="">
+                <img src="asset/img/" alt="">
+            </div> -->
+            <div class="xyz">
+                <img src="asset/img/xyz-logo-white.png" alt="">
+            </div>
+        </div>
+    <div class="treasury" id="treasury">
+        <div class="slider">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-w4svxkv_os?si=HGrbN7_3IC-7431w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> 
+</iframe>
+            <div class="slides">
+
+            </div>
+
+        </div>
+    <div class="emp" style="background-color: white; height: 200px;"></div>
+    <div class="footer">
+        <span id="zen">Tech Symphony. <br> Innovation for a<br>Better Future.</span>
+        <div class="social">
+            <div class="sepration">
+                <div class="sdot"><a href="https://www.instagram.com/techmobius/"><i class='bx bxl-instagram'></i></a></div>
+                <div class="sdot"><a href="mailto:ipistechmobius@gmail.com"><i class='bx bxl-gmail' ></i></a></div>
+            </div>
+            <div class="sepration">
+                <!-- <div class="sdot"><a href=""><i class='bx bxl-youtube' ></i></a></div> -->
+                <!-- <div class="sdot"><a href="https://www.linkedin.com/company/futurzclub"><i class='bx bxl-linkedin-square' ></i></a></div> -->
+            </div>
+            
+        </div>
+        <iframe class="gloc" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.483232657958!2d77.05709878840258!3d28.58527662355748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1b22002b7b11%3A0xef2925fbb4c319c!2sIndraprastha%20International%20School!5e0!3m2!1sen!2sin!4v1746460711766!5m2!1sen!2sin" width="600" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        <div class="location">
+            <span class="adw">Senior Wing <br> Indraprastha Internatioanl School, <br>Sector-10, Dwarka, New Delhi, Delhi, <br>NCT, India - 110075</span>
+            <span class="cr">Copyright Tech Mobius 2025 &copy;</span>
+        </div>
+      
+    
+    <script>
+        const burger = document.querySelector('.burger');
+        const cross = document.querySelector('.cross');
+        const navContainer = document.querySelector('.nav-container');
+        const navbar = document.querySelector('.navbar');
+        const logoImg = document.querySelector('.logo img');
+        const navlist = document.querySelector('.nav-list');
+        const moblogo = document.querySelector('.moblogo');
+        const body = document.querySelector('body');
+        const newLogoSrc = 'asset/img/Z3NITH24WHITE.png';
+        const originalLogoSrc = 'asset/img/Z3NITH24BLACK.png';
+
+        burger.addEventListener('click', () => {
+            navContainer.classList.toggle('v-class');
+            navbar.classList.toggle('h-nav');
+            navlist.classList.toggle('v-class');
+            burger.classList.toggle('active');
+            cross.classList.toggle('active');
+            moblogo.classList.toggle('hidden');
+            if (navContainer.classList.contains('v-class')) {
+                logoImg.src = originalLogoSrc;
+                body.style.backgroundColor = '#ffffff';
+                navContainer.style.pointerEvents = 'none';
+                body.style.overflowY = 'auto';
+                body.classList.remove('hidden-content'); 
+            } else {
+                logoImg.src = newLogoSrc;
+                body.style.backgroundColor = '#1e1e1e';
+                navContainer.style.pointerEvents = 'auto';
+                body.style.overflowY = 'hidden';
+                body.classList.add('hidden-content');
+            }
+        });
+
+        cross.addEventListener('click', () => {
+            navContainer.classList.toggle('v-class');
+            navbar.classList.toggle('h-nav');
+            navlist.classList.toggle('v-class');
+            burger.classList.toggle('active');
+            cross.classList.toggle('active');
+            moblogo.classList.toggle('hidden');
+
+            if (navContainer.classList.contains('v-class')) {
+                logoImg.src = originalLogoSrc;
+                body.style.backgroundColor = '#ffffff';
+                navContainer.style.pointerEvents = 'none';
+                body.style.overflowY = 'auto';
+                body.classList.remove('hidden-content'); 
+            } else {
+                logoImg.src = newLogoSrc;
+                body.style.backgroundColor = '#1e1e1e';
+                navContainer.style.pointerEvents = 'auto';
+                body.style.overflowY = 'hidden';
+                body.classList.add('hidden-content');
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const content = document.querySelector('.content');
+            const ani = document.getElementById('ani');
+            const aniHeight = ani.offsetHeight;
+            const contentHeight = content.offsetHeight;
+            const emojis = document.querySelectorAll('.emoji');
+            let currentEmojiIndex = 0;
+            window.addEventListener('scroll', function() {
+                const aniDiv = document.querySelector('.ani');
+                const aniHeight = aniDiv.offsetHeight;
+                const scrollY = window.scrollY;
+                let opacity = 1;
+                if (scrollY > aniHeight) {
+                    opacity = 1 - ((scrollY - aniHeight) / aniHeight);
+                    if (opacity < 0) opacity = 0;
+                }
+                aniDiv.style.opacity = opacity;
+            });
+            function changeEmoji() {
+                emojis.forEach((emoji, index) => {
+                    if (index === currentEmojiIndex) {
+                        emoji.classList.add('visible');
+                    } else {
+                        emoji.classList.remove('visible');
+                    }
+                });
+                currentEmojiIndex = (currentEmojiIndex + 1) % emojis.length;
+            }
+            changeEmoji();
+            setInterval(changeEmoji, 1000);
+        });
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+            let i;
+            const slides = document.querySelector('.slides').children;
+            const dots = document.querySelectorAll('.dot');
+            const prev = document.querySelector('.prev');
+            const next = document.querySelector('.next');
+            if (n > slides.length) { slideIndex = slides.length }
+            if (n < 1) { slideIndex = 1 }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            slides[slideIndex - 1].style.display = 'block';
+            dots[slideIndex - 1].classList.add('active');
+            prev.style.visibility = (slideIndex === 1) ? 'hidden' : 'visible';
+            next.style.visibility = (slideIndex === slides.length) ? 'hidden' : 'visible';
+        }
+        function dothat() {
+            window.open("https://ipisdwarka.com/pages/iON25-INVITE.pdf");
+        }
+        function dothis(){
+            window.open("https://www.instagram.com/p/DI8Gyp4IdwO/");
+        }
+        function dowhat(){
+            window.open("https://bit.ly/technomaniaz3n")
+        }
+    </script>
+</body> 
+</html>
